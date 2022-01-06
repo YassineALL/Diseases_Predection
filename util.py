@@ -8,9 +8,9 @@ __diseases = None
 __data_columns = None
 __model = None
 
-df1 = pd.read_csv("D:/actimi/deployment/PredictDiseases/server/Symptom-severity.csv")
-desc = pd.read_excel("D:/actimi/deployment/PredictDiseases/server/symptom_Description.xlsx")
-prec = pd.read_excel("D:/actimi/deployment/PredictDiseases/server/symptom_precaution.xlsx")
+df1 = pd.read_csv("Symptom-severity.csv")
+desc = pd.read_excel("symptom_Description.xlsx")
+prec = pd.read_excel("symptom_precaution.xlsx")
 def predict_disease(S1,S2,S3,S4,S5=0,S6=0):
 
 
@@ -27,7 +27,7 @@ def predict_disease(S1,S2,S3,S4,S5=0,S6=0):
 
     psy = [psymptoms]
 
-    with open('D:/actimi/deployment/PredictDiseases/server/artifacts/SympDetector.pkl', 'rb') as f:
+    with open('SympDetector.pkl', 'rb') as f:
         __model = pickle.load(f)
 
     pred2 = __model.predict(psy)
@@ -52,18 +52,18 @@ def load_saved_artifacts():
     global __data_columns
     global __diseases
 
-    with open("D:/actimi/deployment/Predict_Disease/server/artifacts/columns_symptom.json", "r") as f:
+    with open("columns_symptom.json", "r") as f:
         __data_columns = json.load(f)['data_columns']
         print(__data_columns)
 
 
-    with open("D:/actimi/deployment/Predict_Disease/server/artifacts/columns_diseases.json", "r") as ff:
+    with open("columns_diseases.json", "r") as ff:
         __diseases = json.load(ff)['data_columns']
 
 
     global __model
     if __model is None:
-        with open('D:/actimi/deployment/PredictDiseases/server/artifacts/SympDetector.pkl', 'rb') as f:
+        with open('SympDetector.pkl', 'rb') as f:
             __model = pickle.load(f)
     print("loading saved artifacts...done")
 
