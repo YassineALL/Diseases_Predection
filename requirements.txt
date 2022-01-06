@@ -12,4 +12,4 @@ Werkzeug
 numpy
 scipy
 matplotlib
-openpyxl
+openpyxl==2.5.3
