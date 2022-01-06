@@ -1,6 +1,6 @@
 flask
 scikit-learn
-pandas
+pandas==3.0.0
 numpy
 flask_cors
 pyxll
