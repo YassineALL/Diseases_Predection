@@ -1,13 +1,30 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import util
 from flask_cors import CORS
+import flask
+
 import math
 import numpy as np
 
 
 
-app = Flask(__name__)
+# app = Flask(__name__)
+
+
+app = flask.Flask(__name__,
+            static_url_path='',
+            static_folder='templates',
+            template_folder='templates')
 CORS(app)
+
+@app.route('/')
+def home():
+
+    return(flask.render_template('app.html'))
+# @app.route("/")
+# def home():
+#     return render_template("client/app.js")
+
 
 @app.route('/get_symptom_names', methods=['GET'])
 def get_symptom_names():
