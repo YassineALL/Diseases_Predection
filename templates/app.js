@@ -2,8 +2,7 @@ const is_prod = true
 
 const SERVER_URL = is_prod == true ? "https://predictdis.herokuapp.com" : "http://127.0.0.1:5000"
 
-console.log("process.env.PROD_URL",process.env.PROD_URL)
-console.log("process.env.LOCAL_URL",process.env.LOCAL_URL)
+console.log("SERVER_URL",SERVER_URL)
 
 function onPageLoad() {
     console.log("document loaded");
