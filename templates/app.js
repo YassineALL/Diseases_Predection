@@ -1,6 +1,6 @@
-const is_prod = process.env.ENV == "prod" ? true : false
+const is_prod = true
 
-const SERVER_URL = is_prod == true ? process.env.PROD_URL : process.env.LOCAL_URL
+const SERVER_URL = is_prod == true ? "https://predictdis.herokuapp.com" : "http://127.0.0.1:5000"
 
 console.log("process.env.PROD_URL",process.env.PROD_URL)
 console.log("process.env.LOCAL_URL",process.env.LOCAL_URL)
