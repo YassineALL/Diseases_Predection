@@ -1,6 +1,7 @@
 function onPageLoad() {
     console.log("document loaded");
-    var url = "http://127.0.0.1:5000/get_symptom_names";
+    //var url = "http://127.0.0.1:5000/get_symptom_names";
+    var url = "/api/get_symptom_names"
 
     $.get(url, function (data, status) {
         console.log("got response for get_symptome_names request");
@@ -63,7 +64,7 @@ window.onload = onPageLoad;
 //
 //
 //     var url2 = "http://127.0.0.1:5000/predict_disease";
-//
+//     
 //
 //     $.post(url2, {
 //
@@ -95,7 +96,8 @@ function onClickedPredictDisease() {
 
 
 
-    var url2 = "http://127.0.0.1:5000/predict_disease";
+    //var url2 = "http://127.0.0.1:5000/predict_disease";
+    var url2 = "/api/predict_disease"
     var bodyToSend = {};
     if((s5 == "" || s5 == undefined) && s6 == "" || s6 == undefined){
         bodyToSend = {
