@@ -1,7 +1,13 @@
+const is_prod = process.env.ENV == "prod" ? true : false
+
+const SERVER_URL = is_prod == true ? process.env.PROD_URL : process.env.LOCAL_URL
+
+console.log("process.env.PROD_URL",process.env.PROD_URL)
+console.log("process.env.LOCAL_URL",process.env.LOCAL_URL)
+
 function onPageLoad() {
     console.log("document loaded");
-    var url = "http://127.0.0.1:5000/get_symptom_names";
-    //var url = "/api/get_symptom_names"
+   var url = SERVER_URL + "/get_symptom_names";
 
     $.get(url, function (data, status) {
         console.log("got response for get_symptome_names request");
@@ -64,7 +70,7 @@ window.onload = onPageLoad;
 //
 //
 //     var url2 = "http://127.0.0.1:5000/predict_disease";
-//     
+//
 //
 //     $.post(url2, {
 //
@@ -96,8 +102,8 @@ function onClickedPredictDisease() {
 
 
 
-    var url2 = "http://127.0.0.1:5000/predict_disease";
-    //var url2 = "/api/predict_disease"
+   var url2 = SERVER_URL + "/predict_disease";
+
     var bodyToSend = {};
     if((s5 == "" || s5 == undefined) && s6 == "" || s6 == undefined){
         bodyToSend = {
